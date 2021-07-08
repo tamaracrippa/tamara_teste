@@ -1,0 +1,46 @@
+<h1 style="text-align: center;">Corridas Compartilhadas</h1>
+<button mat-button [matMenuTriggerFor]="menu">Corridas Compartilhadas</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Cadastro de Motoristas</button>
+  <button mat-menu-item>Cadastro de Passageiros</button>
+</mat-menu>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Nascimento</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Carro</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Status</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{cliente.nome}}</td>
+        <td>{{cliente.nascimento}}</td>
+        <td>{{cliente.cpf}}</td>
+        <td>{{cliente.carro}}</td>
+        <td>{{cliente.sexo}}</td>
+        <td>{{cliente.status}}</td>
+      </tr>
+      <tr>
+       
+      </tr>
+    </tbody>
+  </table>
+  <div style="text-align:center;">
+    <form name="clienteForm" >
+        <input class="form-control" type="text" ng-model="nome"placeholder="Nome" ng-required="true">
+        <input class="form-control" type="text" ng-model="nascimento"placeholder="Nascimento" ng-required="true">
+        <input class="form-control" type="text" ng-model="cpf"placeholder="CPF" ng-required="true">
+        <input class="form-control" type="text" ng-model="carro"placeholder="Carro" ng-required="true">
+        <input class="form-control" type="text" ng-model="status"placeholder="Status" ng-required="true">
+        <input class="form-control" type="text" ng-model="sexo"placeholder="Sexo" ng-required="true">
+    </form>
+        
+    <button class="btn btn-primary" ng-click="CadastroDeCliente(cliente)" ng-disabled="clienteForm.$invalid"> Cadastrar Cliente </button>
+    <button class="btn btn-danger" ng-click="apagarClientes(clientes)"> Excluir Cliente </button>
+    
+  </div>
